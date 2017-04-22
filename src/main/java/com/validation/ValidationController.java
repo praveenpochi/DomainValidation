@@ -18,18 +18,15 @@ import com.validation.annotations.Employee;
 @Controller
 public class ValidationController {
 	@InitBinder
-	public void getPaymentType(WebDataBinder webBinder){
-		
+	public void getPaymentType(WebDataBinder webBinder) {
+
 	}
-	
 
 	@Autowired
 	private MessageSource messageSource;
-	
-	
+
 	@RequestMapping(value = "validation/CHK", method = RequestMethod.POST)
-	public String validateCHK(@Valid @RequestBody Employee emp,
-			BindingResult result) {
+	public String validateCHK(@Valid @RequestBody Employee emp, BindingResult result) {
 		String message = "NoErrors";
 		if (result.hasErrors()) {
 			for (Object object : result.getAllErrors()) {
